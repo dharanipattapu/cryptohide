@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crypto Hide</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Font Awesome CSS -->
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-image: url('img3.jpg'); /* Replace 'your_background_image.jpg' with the path to your image */
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 100vh;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background color for main content */
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Add shadow effect */
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    main:hover {
+      background-color: rgba(255, 255, 255, 0.9); /* Lighten the background color on hover */
+      transform: scale(1.05); /* Add scale effect on hover */
+    }
+
+    form {
+      margin-bottom: 20px;
+    }
+
+    label {
+      font-weight: bold;
+    }
+
+    input[type="file"] {
+      margin-bottom: 10px;
+    }
+
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+
+    button {
+      padding: 10px 20px;
+      border: none;
+      background-color: #007bff;
+      color: #fff;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    #errorMessage {
+      color: red;
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    footer {
+      padding: 20px 0;
+      text-align: center;
+      color: #fff;
+      transition: background-color 0.3s ease;
+    }
+
+    footer:hover {
+      background-color: rgba(0, 0, 0, 0.7); /* Darken the background color on hover */
+    }
+
+    header {
+      padding: 20px 0;
+      text-align: center;
+      color: #fff;
+      transition: background-color 0.3s ease;
+    }
+
+    header:hover {
+      background-color: rgba(0, 0, 0, 0.7); /* Darken the background color on hover */
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Crypto Hide</h1>
+  </header>
+  <main>
+    <form id="imageUploadForm" action="#" method="post" enctype="multipart/form-data">
+      <label for="image">Upload Encrypted Image:</label>
+      <input type="file" id="image" name="image" accept="image/*" required>
+      <button type="button" onclick="decryptImage()"><i class="fas fa-lock-open"></i> Decrypt</button> <!-- Font Awesome icon for decryption -->
+    </form>
+    <input type="text" id="decryptedText" style="display: none;" readonly> <!-- Field box for decrypted text -->
+    <div id="errorMessage"></div>
+  </main>
+  <footer>
+    &copy; 2024 Crypto Hide. All rights reserved.
+  </footer>
+  <script>
+    function decryptImage() {
+      var fileInput = document.getElementById('image');
+      var errorMessage = document.getElementById('errorMessage');
+      var file = fileInput.files[0];
+      var fileType = file.type;
+
+      if (fileType.startsWith('image/')) {
+        errorMessage.textContent = '';
+        decryptMessage(); // Decrypt the message once the image is uploaded
+      } else {
+        errorMessage.textContent = 'Please select a valid image file.';
+      }
+    }
+
+    function decryptMessage() {
+      // Perform decryption logic here
+      // For demonstration, let's simply assume the decrypted text is "Decrypted Text"
+      var decryptedText = "Decrypted Text";
+      document.getElementById('decryptedText').value = decryptedText;
+      document.getElementById('decryptedText').style.display = 'block'; // Display decrypted text
+    }
+  </script>
+</body>
+</html>
+
